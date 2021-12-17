@@ -149,9 +149,28 @@ const copyHeadline = (id) => {
     let copyText = copyBtn.previousElementSibling.firstElementChild.textContent;
   
     /* Copy the text to clipboard */
-    navigator.clipboard.writeText(copyText);
-    copyBtn.classList.add("copied");
-    copyBtn.innerText = "Copied";
+    if(navigator.clipboard && window.isSecureContext){
+        copyBtn.classList.add("copied");
+        copyBtn.innerText = "Copied";
+        return navigator.clipboard.writeText(copyText);
+    } else{
+        copyBtn.classList.add("copied");
+        copyBtn.innerText = "Copied";
+        let textArea = document.createElement("textarea");
+        textArea.value = copyText;
+        // make the textarea out of viewport
+        textArea.style.position = "fixed";
+        textArea.style.left = "-999999px";
+        textArea.style.top = "-999999px";
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        return new Promise((res, rej) => {
+            // here the magic happens
+            document.execCommand('copy') ? res() : rej();
+            textArea.remove();
+        });
+    };
 };
 
 // make copyHeadline available to onclick inside below event listener:
@@ -210,7 +229,7 @@ genHeadlineButton.addEventListener("click", () => {
 <!--                <h1 class="text-lg">Today's Irregular Headline:</h1>  -->
                 <h1 class="text-lg font-bold typewriter">${randomHeadline} &#160;</h1>
             </div>
-            <button href="#" class="text-center text-white hover:text-gray-300 ml-3" onclick="copyHeadline(this.id)" id="btn-${uniqueId()}">Copy</button>
+            <button href="#" class="text-center text-white hover:text-gray-300 ml-3" onclick="copyHeadline(this.id).then(() => console.log('text copied')).catch(() => console.log('error copying'));" id="btn-${uniqueId()}">Copy</button>
         </div>
     `
     // set inner html of newly created div; insert new div before the first child of the headlinesContainer - headlines appear in order of recency
