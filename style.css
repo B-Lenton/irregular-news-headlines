@@ -1,0 +1,85 @@
+.hero-container {
+    height: 450px;
+}
+
+.hero-image {
+    /* https://unsplash.com/photos/FPNnKfjcbNU */
+    background: url('./images/burning-paper.jpg') no-repeat center center content-box;
+}
+
+.polygon {
+    clip-path:polygon(10% 0, 100% 0%, 100% 100%, 0 100%);
+}
+
+@media (max-width: 767px){
+    .sm-background-image {
+        background: url('./images/burning-paper.jpg') center;
+    }
+    .sm-background-cover {
+        background: rgba(255,255,255,.65);
+    }
+
+    .sm-background-cover div h2 {
+        text-shadow: 1px 1px 1px #fff;
+    }
+
+    .sm-background-cover div p {
+        font-size: 1em;
+        font-weight: 500;
+        color: #000;
+        text-shadow: 1px 1px 1px #fff;
+    }
+}
+
+/* typewriter effect for larger screens */
+@media (min-width: 1024px){
+    .typewriter {
+        overflow: hidden; /* Ensures content is not revealed until animation */
+        border-right: .15em solid #fff; /* Typwriter cursor */
+        white-space: nowrap; /* Keeps content on a single line */
+        margin: 0 auto; /* Scrolling effect as the typing happens */
+        letter-spacing: .1em;
+        animation:
+            typing 3s steps(30),
+            blink-caret .8s step-end 6;
+      }
+      
+      /* Typing effect */
+      @keyframes typing {
+        from { width: 0 }
+        to { width: 100% }
+      }
+      
+      /* Typewriter cursor effect */
+      @keyframes blink-caret {
+        from, to { border-color: transparent }
+        50% { border-color: #fff; }
+      }
+}
+
+/* smaller screen animation for headline display */
+@media (max-width: 1023px){
+    @keyframes headline-appear {
+        from {width: 0; height: 76px; color: transparent;}
+        50% {color: transparent; height: 76px}
+        to {width: 78vw; height: initial; color: #fff;}
+    }
+    
+    .news-headline {
+        animation-name: headline-appear;
+        animation-duration: 2.5s;
+    }
+}
+
+/* added by JS when text is copied */
+@keyframes copied-text {
+    from {background-color: inherit; color: #fff;}
+    to {background-color: #fff; color: #000;}
+}
+
+.copied {
+    padding: 2px;
+    border-radius: 5px;
+    animation-name: copied-text;
+    animation-duration: 3s;
+}
