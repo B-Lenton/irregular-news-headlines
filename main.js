@@ -147,15 +147,15 @@ const copyHeadline = (id) => {
     /* Get the h1 element's headline content */
     let copyBtn = document.getElementById(id);
     let copyText = copyBtn.previousElementSibling.firstElementChild.textContent;
+    copyBtn.classList.add("copied");
+    copyBtn.innerText = "Copied";
   
     /* Copy the text to clipboard */
     if(navigator.clipboard && window.isSecureContext){
-        copyBtn.classList.add("copied");
-        copyBtn.innerText = "Copied";
+        // straight-forward copy approach in secure contexts:
         return navigator.clipboard.writeText(copyText);
     } else{
-        copyBtn.classList.add("copied");
-        copyBtn.innerText = "Copied";
+        // copy approach when navigator.clipboard is not recognised
         let textArea = document.createElement("textarea");
         textArea.value = copyText;
         // make the textarea out of viewport
@@ -166,7 +166,6 @@ const copyHeadline = (id) => {
         textArea.focus();
         textArea.select();
         return new Promise((res, rej) => {
-            // here the magic happens
             document.execCommand('copy') ? res() : rej();
             textArea.remove();
         });
