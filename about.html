@@ -51,30 +51,45 @@
 
     <!-- component: https://tailwindcomponents.com/component/main-content-component -->
     <main class="py-12 md:px-20 sm:px-14 px-6">
-        <div class="sm:flex items-center shadow-md mb-8">
+        <!-- Guardian API -->
+        <div class="sm:flex items-center shadow-md mb-8 p-2 hover:border-b-4 hover:border-b-indigo-300 hover:rounded border-t-2 sm:border-none">
           <div class="md:px-10 sm:px-5">
             <h1 class="text-gray-800 font-bold text-2xl my-2">Calling The Guardian's REST API</h1>
             <p class="text-gray-700 mb-2 md:mb-6">I researched a number of APIs before choosing the Guardian's, partly for its ease of use. The data is collected using fetch() inside a while loop, yielding a total of 500 news headlines.</p>
             <div class="flex justify-between mb-2">
-              <a class="block mb-2 text-blue-800 font-bold" href="https://open-platform.theguardian.com/" target="_blank">View API</a>
+              <a class="block mb-2 text-indigo-600 font-bold rounded-full bg-white border-2 border-indigo-600 px-2 py-1 hover:bg-indigo-100" href="https://open-platform.theguardian.com/" target="_blank">View API</a>
             </div>
           </div>
           <div>
             <img class="bg-cover" src="./images/guardian-bg.jpg" alt="" />
           </div>
         </div>
-        <div class="sm:flex items-center shadow-md">
+        <!-- Compromise NLP -->
+        <div class="sm:flex items-center shadow-md mb-8 p-2 hover:border-b-4 hover:border-b-indigo-300 hover:rounded border-t-2 sm:border-none">
           <div class="md:px-10 sm:px-5">
             <h1 class="text-gray-800 font-bold text-2xl my-2">Compromise NLP</h1>
             <p class="text-gray-700 mb-2 md:mb-6">Compromise felt like the obvious choice for a fully frontend Natural-Language Processor. It is lightweight, simple to use, yet powerful. I parsed nine categories of words and refactored the results in varying ways; these results make up the entirety of every random headline.</p>
             <div class="flex justify-between mb-2">
-              <a class="block mb-2 text-blue-800 font-bold" href="https://github.com/spencermountain/compromise" target="_blank">View NLP</a>
+              <a class="block mb-2 text-indigo-600 font-bold rounded-full bg-white border-2 border-indigo-600 px-2 py-1 hover:bg-indigo-100" href="https://github.com/spencermountain/compromise" target="_blank">View NLP</a>
             </div>
           </div>
-          <div>
+		  <div>
             <img class="bg-cover" src="./images/words.jpg" alt="" />
           </div>
-        </div>
-      </main>
+		</div>
+          <!-- GitHub -->
+          <div class="sm:flex items-center shadow-md mb-8 p-2 hover:border-b-4 hover:border-b-indigo-300 hover:rounded border-t-2 sm:border-none">
+            <div class="md:px-10 sm:px-5">
+              <h1 class="text-gray-800 font-bold text-2xl my-2">Github</h1>
+              <p class="text-gray-700 mb-2 md:mb-6">The code for this project, along with many other projects that I have worked on, can be found on my GitHub.</p>
+              <div class="flex justify-between mb-2">
+                <a class="block mb-2 text-indigo-600 font-bold rounded-full bg-white border-2 border-indigo-600 px-2 py-1 hover:bg-indigo-100" href="https://github.com/B-Lenton/irregular-news-headlines" target="_blank">View GitHub</a>
+              </div>
+            </div>
+          <div>
+            <img class="bg-cover" src="./images/code.jpg" alt="" />
+          </div>
+		</div>
+    </main>
 </body>
 </html>

@@ -5,6 +5,7 @@
 .hero-image {
     /* https://unsplash.com/photos/FPNnKfjcbNU */
     background: url('./images/burning-paper.jpg') no-repeat center center content-box;
+    background-size: cover;
 }
 
 .polygon {
@@ -13,8 +14,10 @@
 
 @media (max-width: 767px){
     .sm-background-image {
-        background: url('./images/burning-paper.jpg') center;
+        background: url('./images/burning-paper.jpg') no-repeat center center content-box;
+        background-size: cover;
     }
+    
     .sm-background-cover {
         background: rgba(255,255,255,.65);
     }
@@ -24,10 +27,10 @@
     }
 
     .sm-background-cover div p {
-        font-size: 1em;
+        font-size: 1.05em;
         font-weight: 500;
         color: #000;
-        text-shadow: 1px 1px 1px #fff;
+        text-shadow: 1px 1px 15px #fff;
     }
 }
 

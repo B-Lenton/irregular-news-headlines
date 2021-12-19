@@ -129,7 +129,9 @@ const lowercaseElements = (array) => {
 
 // Function to capitalise first letter of headline
 const capitaliseFirstLetter = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    if(string){
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
 };
 
 // random number generator function
